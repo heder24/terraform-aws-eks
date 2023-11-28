@@ -603,17 +603,9 @@ variable "aws_auth_accounts" {
   type        = list(any)
   default     = []
 }
-variable "create" {
-  description = "Determines whether to create EKS managed node group or not"
-  type        = bool
-  default     = true
-}
 
-variable "tags" {
-  description = "A map of tags to add to all resources"
-  type        = map(string)
-  default     = {}
-}
+
+
 
 variable "platform" {
   description = "Identifies if the OS platform is `bottlerocket` or `linux` based; `windows` is not supported"
