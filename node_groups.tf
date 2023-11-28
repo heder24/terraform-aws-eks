@@ -232,7 +232,7 @@ resource "aws_security_group_rule" "node" {
 ################################################################################
 
 module "fargate_profile" {
-  source = "/modules/fargate_profile"
+  source = "./terraform-aws-eks/modules/fargate_profile"
 
   for_each = { for k, v in var.fargate_profiles : k => v if var.create && !local.create_outposts_local_cluster }
 
@@ -268,7 +268,7 @@ module "fargate_profile" {
 ################################################################################
 
 module "eks_managed_node_group" {
-  source = "/modules/eks-managed-node-group"
+  source = "./terraform-aws-eks/modules/eks-managed-node-group"
 
   for_each = { for k, v in var.eks_managed_node_groups : k => v if var.create && !local.create_outposts_local_cluster }
 
@@ -378,7 +378,7 @@ module "eks_managed_node_group" {
 ################################################################################
 
 module "self_managed_node_group" {
-  source = "/modules/self-managed-node-group"
+  source = "./terraform-aws-eks/modules/self-managed-node-group"
 
   for_each = { for k, v in var.self_managed_node_groups : k => v if var.create }
 
